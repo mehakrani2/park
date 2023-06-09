@@ -63,6 +63,4 @@ function print9()
 }  
 
 
-
-
 // whats app icon code
