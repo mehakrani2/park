@@ -3,7 +3,7 @@
 
 <head>
     <title>Keansburg Park</title>
-    <link rel="icon" href="">
+    <link rel="icon" href="IMG/e roject logo/Untitled_design__4_-removebg-preview (1).png">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -154,7 +154,7 @@
             <div class="collapse navbar-collapse" id="collapsibleNavId">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a href="" class="nav-link text-light" id="ac">Home</a></li>
-                   
+
                     <li class="nav-item"><a href="#gallery" class="nav-link text-light" id="ac">Entertainment</a></li>
                     <!-- <div id="dropdown">
                         <ul class="dropdown-menu">
@@ -3260,6 +3260,9 @@
 
 
     <!-- rate us js  -->
+
+    <!-- confetti cdn  -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <script>
         function firststar() {
             document.getElementById("eye1").style.color = "#61407f"
@@ -3287,6 +3290,28 @@
             document.getElementById("eye5").style.color = "#61407f"
             document.getElementById("aisha").innerHTML = " THANKYOU <br>for Choosing Our Services! <br>We appreciate the opportunity <br>to serve you.. "
             document.getElementById("boot").style.display = "block"
+
+            var duration = 10 * 1000;
+            var animationEnd = Date.now() + duration;
+            var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+            function randomInRange(min, max) {
+                return Math.random() * (max - min) + min;
+            }
+
+            var interval = setInterval(function () {
+                var timeLeft = animationEnd - Date.now();
+
+                if (timeLeft <= 0) {
+                    return clearInterval(interval);
+                }
+
+                var particleCount = 50 * (timeLeft / duration);
+                // since particles fall down, start a bit higher than random
+                confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+                confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+            }, 250);
+
         }
 
 
